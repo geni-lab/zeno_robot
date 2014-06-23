@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<robot name="zeno">
+  <link name="base_link"/>
+  <link name="right_leg"/>
+  <link name="left_leg"/>
+  <joint name="base_to_right_leg" type="continuous">
+       <parent link="base_link"/>
+       <child link="right_leg"/>
+       <origin xyz="0.0 -.3253 -0.41" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+  </joint>
+  <joint name="base_to_left_leg" type="continuous">
+       <parent link="base_link"/>
+       <child link="left_leg"/>
+       <origin xyz="0.0 0.3253 -0.41" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+  </joint>  
+  <link name="left_leg_1"/>
+  <joint name="left_leg_to_left_leg_1" type="continuous">
+       <parent link="left_leg"/>
+       <child link="left_leg_1"/>
+       <origin xyz="0.0 0.0 -0.148" rpy="0 0 0" />
+       <axis xyz="1 0 0"/>
+  </joint>  
+  <link name="right_leg_1"/>
+  <joint name="right_leg_to_right_leg_1" type="continuous">
+       <parent link="right_leg"/>
+       <child link="right_leg_1"/>
+       <origin xyz="0.0 0.0 -0.148" rpy="0 0 0" />
+       <axis xyz="1 0 0"/>
+  </joint>  
+  <link name="right_leg_2"/>
+  <joint name="right_leg_1_to_right_leg_2" type="continuous">
+       <parent link="right_leg_1"/>
+       <child link="right_leg_2"/>
+       <origin xyz="0.0 0.0 -0.448" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="left_leg_2"/>
+  <joint name="left_leg_1_to_left_leg_2" type="continuous">
+       <parent link="left_leg_1"/>
+       <child link="left_leg_2"/>
+       <origin xyz="0.0 0.0 -0.448" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="left_leg_3"/>
+  <joint name="left_leg_2_to_left_leg_3" type="continuous">
+       <parent link="left_leg_2"/>
+       <child link="left_leg_3"/>
+       <origin xyz="0.0 0.0 -0.7267" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="right_leg_3"/>
+  <joint name="right_leg_2_to_right_leg_3" type="continuous">
+       <parent link="right_leg_2"/>
+       <child link="right_leg_3"/>
+       <origin xyz="0.0 0.0 -0.7267" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="right_leg_4"/>
+  <joint name="right_leg_3_to_right_leg_4" type="continuous">
+       <parent link="right_leg_3"/>
+       <child link="right_leg_4"/>
+       <origin xyz="0.0 0.0 -0.6846" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="left_leg_4"/>
+  <joint name="left_leg_3_to_left_leg_4" type="continuous">
+       <parent link="left_leg_3"/>
+       <child link="left_leg_4"/>
+       <origin xyz="0.0 0.0 -0.6846" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="left_leg_5"/>
+  <joint name="left_leg_4_to_left_leg_5" type="fixed">
+       <parent link="left_leg_4"/>
+       <child link="left_leg_5"/>
+       <origin xyz="0.0 0.0 -0.4622" rpy="0 0 0" />
+       <!-- axis xyz="1 0 0"/ -->
+  </joint>  
+  <link name="right_leg_5"/>
+  <joint name="right_leg_4_to_left_leg_5" type="fixed">
+       <parent link="right_leg_4"/>
+       <child link="right_leg_5"/>
+       <origin xyz="0.0 0.0 -0.4622" rpy="0 0 0" />
+       <!-- axis xyz="1 0 0"/ -->
+  </joint>  
+
+  <link name="torso"/>
+  <joint name="base_to_torso" type="continuous">
+       <parent link="base_link"/>
+       <child link="torso"/>
+       <origin xyz="0.0 0.0 0.04" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+  </joint>  
+  <link name="neck"/>
+  <joint name="torso_to_neck" type="continuous">
+       <parent link="torso"/>
+       <child link="neck"/>
+       <origin xyz="0.0 0.0 1.05" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+  </joint>  
+  <link name="neck_tilt"/>
+  <joint name="neck_to_neck_tilt" type="continuous">
+       <parent link="neck"/>
+       <child link="neck_tilt"/>
+       <origin xyz="0.0 0.0 0.3" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+
+  <link name="right_shoulder"/>
+  <joint name="torso_to_right_shoulder" type="continuous">
+       <parent link="torso"/>
+       <child link="right_shoulder"/>
+       <origin xyz="0.0 -0.66 0.70" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="left_shoulder"/>
+  <joint name="torso_to_left_shoulder" type="continuous">
+       <parent link="torso"/>
+       <child link="left_shoulder"/>
+       <origin xyz="0.0 0.66 0.70" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="left_shoulder_1"/>
+  <joint name="left_shoulder_to_1" type="continuous">
+       <parent link="left_shoulder"/>
+       <child link="left_shoulder_1"/>
+       <origin xyz="0.0 0.222 0.36" rpy="0 0 0" />
+       <axis xyz="1 0 0"/>
+  </joint>  
+  <link name="left_shoulder_2"/>
+  <joint name="left_shoulder_1_to_2" type="continuous">
+       <parent link="left_shoulder_1"/>
+       <child link="left_shoulder_2"/>
+       <origin xyz="0.0 0.1 -0.7" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+  </joint>  
+  <link name="left_shoulder_3"/>
+  <joint name="left_shoulder_2_to_3" type="continuous">
+       <parent link="left_shoulder_2"/>
+       <child link="left_shoulder_3"/>
+       <origin xyz="0.0 0.0 -0.128" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="left_shoulder_4"/>
+  <joint name="left_shoulder_3_to_4" type="continuous">
+       <parent link="left_shoulder_3"/>
+       <child link="left_shoulder_4"/>
+       <origin xyz="0.0 0.0 -0.292" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+  </joint>  
+
+
+  
+  <link name="right_shoulder_1"/>
+  <joint name="right_shoulder_to_1" type="continuous">
+       <parent link="right_shoulder"/>
+       <child link="right_shoulder_1"/>
+       <origin xyz="0.0 -0.222 0.36" rpy="0 0 0" />
+       <axis xyz="1 0 0"/>
+  </joint>  
+  <link name="right_shoulder_2"/>
+  <joint name="right_shoulder_1_to_2" type="continuous">
+       <parent link="right_shoulder_1"/>
+       <child link="right_shoulder_2"/>
+       <origin xyz="0.0 -0.1 -0.7" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+  </joint>  
+  <link name="right_shoulder_3"/>
+  <joint name="right_shoulder_2_to_3" type="continuous">
+       <parent link="right_shoulder_2"/>
+       <child link="right_shoulder_3"/>
+       <origin xyz="0.0 0.0 -0.128" rpy="0 0 0" />
+       <axis xyz="0 1 0"/>
+  </joint>  
+  <link name="right_shoulder_4"/>
+  <joint name="right_shoulder_3_to_4" type="continuous">
+       <parent link="right_shoulder_3"/>
+       <child link="right_shoulder_4"/>
+       <origin xyz="0.0 0.0 -0.292" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+  </joint>  
+  
+</robot>
