@@ -1,0 +1,26 @@
+left_leg_controller:
+    type: dynamixel_hardware_interface/JointTrajectoryActionController
+    dependencies:
+        - l_hip_yaw_controller
+        - l_hip_roll_controller
+        - l_hip_pitch_controller
+        - l_knee_pitch_controller
+        - l_ankle_pitch_controller
+        - l_ankle_roll_controller
+
+    joint_trajectory_action_node:
+        min_velocity: 0.1
+        constraints:
+            goal_time: 0.25
+            l_hip_yaw_joint:
+                goal: 0.045
+            l_hip_roll_joint:
+                goal: 0.045
+            l_hip_pitch_joint:
+                goal: 0.045
+            l_knee_pitch_joint:
+                goal: 0.045
+            l_ankle_pitch_joint:
+                goal: 0.045
+            l_ankle_roll_joint:
+                goal: 0.045

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>zeno_robot</name>
-  <version>0.0.1</version>
-  <description>The zeno_robot package</description>
+  <name>zeno_dashboard</name>
+  <version>0.0.0</version>
+  <description>The zeno_dashboard package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but mutiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/zeno_robot</url> -->
+  <!-- <url type="website">http://wiki.ros.org/zeno_dashboard</url> -->
 
 
   <!-- Author tags are optional, mutiple are allowed, one per tag -->
@@ -45,11 +45,9 @@
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- You can specify that this package is a metapackage here: -->
-	<metapackage/>
+    <!-- <metapackage/> -->
 
     <!-- Other tools can request additional information be placed here -->
-	<run_depend>zeno_driver</run_depend>
-	<run_depend>zeno_description</run_depend>
-    <run_depend>zeno_dashboard</run_depend>
+
   </export>
 </package>

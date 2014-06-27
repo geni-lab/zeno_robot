@@ -1,0 +1,72 @@
+<launch>
+    <!-- Start zeno's joint state publisher, load his urdf into the parameter server and start the robot state publisher -->
+    <node pkg="zeno_driver" type="zeno_joint_state_publisher.py" name="zeno_joint_state_publisher" required="true" />
+    <param name="robot_description" textfile="$(find zeno_description)/urdf/zeno_robot.urdf"/>
+	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" />
+
+    <!-- Start the Dynamixel servo manager to control Zeno's legs -->
+    <node name="dynamixel_manager_arm" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
+        <rosparam>
+            namespace: zeno_manager
+            diagnostics_rate: 10
+            serial_ports:
+                zeno_legs:
+                    port_name: "/dev/ttyUSB0"
+                    baud_rate: 115200
+                    min_motor_id: 1
+                    max_motor_id: 12
+                    update_rate: 50
+        </rosparam>
+    </node>
+
+
+    <!--&lt;!&ndash; Start left and right leg joint controllers &ndash;&gt;-->
+    <!--<rosparam file="$(find zeno_driver)/config/joint_position_controllers.yaml" command="load"/>-->
+    <!--<node name="legs_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"-->
+          <!--args="--manager=zeno_manager-->
+                <!----port=zeno_legs-->
+                <!----type=simple-->
+                <!--r_hip_yaw_controller-->
+                <!--r_hip_roll_controller-->
+                <!--r_hip_pitch_controller-->
+                <!--r_knee_pitch_controller-->
+                <!--r_ankle_pitch_controller-->
+                <!--r_ankle_roll_controller-->
+
+                <!--l_hip_yaw_controller-->
+                <!--l_hip_roll_controller-->
+                <!--l_hip_pitch_controller-->
+                <!--l_knee_pitch_controller-->
+                <!--l_ankle_pitch_controller-->
+                <!--l_ankle_roll_controller"-->
+          <!--output="screen"/>-->
+
+    <!--&lt;!&ndash; Start right leg joint trajectory action controller &ndash;&gt;-->
+    <!--<rosparam file="$(find zeno_driver)/config/right_leg_trajectory_controller.yaml" command="load"/>-->
+    <!--<node name="left_leg_trajectory_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"-->
+          <!--args="--manager=zeno_manager-->
+                <!----type=meta-->
+                <!--right_leg_controller-->
+                <!--r_hip_yaw_controller-->
+                <!--r_hip_roll_controller-->
+                <!--r_hip_pitch_controller-->
+                <!--r_knee_pitch_controller-->
+                <!--r_ankle_pitch_controller-->
+                <!--r_ankle_roll_controller"-->
+          <!--output="screen"/>-->
+
+    <!--&lt;!&ndash; Start left leg joint trajectory action controller &ndash;&gt;-->
+    <!--<rosparam file="$(find zeno_driver)/config/left_leg_trajectory_controller.yaml" command="load"/>-->
+    <!--<node name="left_leg_trajectory_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"-->
+          <!--args="--manager=zeno_manager-->
+                <!----type=meta-->
+                <!--left_leg_controller-->
+                <!--l_hip_yaw_controller-->
+                <!--l_hip_roll_controller-->
+                <!--l_hip_pitch_controller-->
+                <!--l_knee_pitch_controller-->
+                <!--l_ankle_pitch_controller-->
+                <!--l_ankle_roll_controller"-->
+          <!--output="screen"/>-->
+
+</launch>
