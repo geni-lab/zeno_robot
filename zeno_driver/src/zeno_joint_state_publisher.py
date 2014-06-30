@@ -4,60 +4,61 @@ __author__ = 'Jamie Diprose'
 import rospy
 from sensor_msgs.msg import JointState
 from threading import Thread
-from ros_pololu_servo.srv import pololu_state
-from dynamixel_msgs.msg import MotorStateList
-import threading
+from dynamixel_msgs.msg import JointState as DynamixelJointState
+from itertools import repeat
 
 
-class ZenoSensors(Thread):
-    def __init__(self, actuator_yaml_path):
+class ZenoJointStatePublisher(Thread):
+    NODE_NAME = 'zeno_robot_joint_state_publisher'
+
+    def __init__(self):
         Thread.__init__(self)
-
-        rospy.init_node('zeno_sensors')
+        rospy.init_node(ZenoJointStatePublisher.NODE_NAME, log_level=rospy.INFO)
         self.rate = rospy.Rate(rospy.get_param('~sensor_rate', 15.0))
         self.base_frame_id = rospy.get_param('~base_frame_id', "base_link")
+        self.names = ['r_hip_yaw', 'r_hip_roll', 'r_hip_pitch', 'r_knee_pitch', 'r_ankle_pitch', 'r_ankle_roll',
+                          'l_hip_yaw', 'l_hip_roll', 'l_hip_pitch', 'l_knee_pitch', 'l_ankle_pitch', 'l_ankle_roll']
+
+        # Pre populate JointState message
         self.joint_state_pub = rospy.Publisher("joint_states", JointState)
         self.joint_state = JointState()
         self.joint_state.header.frame_id = self.base_frame_id
-        self.joint_state.name = ['r_hip_yaw_joint', 'r_hip_roll_joint', 'r_hip_pitch_joint', 'r_knee_pitch_joint', 'r_ankle_pitch_joint', 'r_ankle_roll_joint',
-                                 'l_hip_yaw_joint', 'l_hip_roll_joint', 'l_hip_pitch_joint', 'l_knee_pitch_joint', 'l_ankle_pitch_joint', 'l_ankle_roll_joint']
+        for name in self.names:
+            self.joint_state.name.append(name + "_joint")
 
-        self.motor_states_lock = threading.RLock()
-        self.motor_states = []
-        self.motor_status_sub = rospy.Subscriber("/motor_states/zeno_legs", MotorStateList, self.update_leg_motor_states)
+        # Subscribe to joint state messages for each joint
+        self.joint_positions = list(repeat(0.0, 12))
+        self.joint_velocities = list(repeat(0.0, 12))
+        for name in self.names:
+            controller = name + '_controller/state'
+            rospy.loginfo(controller)
+            rospy.Subscriber(controller, DynamixelJointState, self.update_dynamixel_joint_state)
 
-    def update_leg_motor_states(self, msg):
-        with self.motor_states_lock:
-            self.motor_states = msg.motor_states
-
-    @staticmethod
-    def encoder_to_radians(encoder):
-        return encoder
+    def update_dynamixel_joint_state(self, msg):
+        joint_index = msg.motor_ids[0] - 1
+        self.joint_positions[joint_index] = msg.current_pos
+        self.joint_velocities[joint_index] = msg.velocity
 
     def run(self):
         while not rospy.is_shutdown():
             self.joint_state.header.stamp = rospy.Time.now()
-            position = []
-            velocity = []
+            # rospy.loginfo("JOINT POSITIONS: " + str(self.joint_positions))
+            # rospy.loginfo("JOINT VELOCITIES: " + str(self.joint_velocities))
 
-            with self.motor_states_lock:
-                for motor_state in self.motor_states:
-                    position.append(ZenoSensors.encoder_to_radians(motor_state.position))
-                    velocity.append(motor_state.speed)
-
-            self.joint_state.position = position
-            self.joint_state.velocity = velocity
+            self.joint_state.position = list(self.joint_positions)
+            self.joint_state.velocity = list(self.joint_velocities)
             self.joint_state_pub.publish(self.joint_state)
             self.rate.sleep()
 
 if __name__ == '__main__':
-    rospy.loginfo("Starting zeno_sensors...")
-    sensors = ZenoSensors()
-    sensors.start()
-    rospy.loginfo("zeno_sensors started")
+    rospy.loginfo("Starting {0}...".format(ZenoJointStatePublisher.NODE_NAME))
+    joint_pub = ZenoJointStatePublisher()
+
+    joint_pub.start()
+    rospy.loginfo("{0} started".format(ZenoJointStatePublisher.NODE_NAME))
 
     rospy.spin()
 
-    rospy.loginfo("Stopping zeno_sensors...")
-    sensors.join()
-    rospy.loginfo("zeno_sensors stopped.")
+    rospy.loginfo("Stopping {0}...".format(ZenoJointStatePublisher.NODE_NAME))
+    joint_pub.join()
+    rospy.loginfo("{0} stopped.".format(ZenoJointStatePublisher.NODE_NAME))

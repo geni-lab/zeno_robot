@@ -1,123 +1,161 @@
 # Right leg
 
 r_hip_yaw_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: r_hip_yaw_joint
-    max_velocity: 3.0
-    motors:
-        - id: 1
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: r_hip_yaw_joint
+    joint_speed: 1.17
+    motor:
+        id: 1
+        init: 108
+        min: 338
+        max: 0
 
 r_hip_roll_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: r_hip_roll_joint
-    max_velocity: 3.0
-    motors:
-        - id: 2
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: r_hip_roll_joint
+    joint_speed: 1.0
+    motor:
+        id: 2
+        init: 526
+        min: 664
+        max: 432
 
 r_hip_pitch_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: r_hip_pitch_joint
-    max_velocity: 3.0
-    motors:
-        - id: 3
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: r_hip_pitch_joint
+    joint_speed: 1.0
+    motor:
+        id: 3
+        init: 397
+        min: 694
+        max: 397
 
 r_knee_pitch_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: r_knee_pitch_joint
-    max_velocity: 3.0
-    motors:
-        - id: 4
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: r_knee_pitch_joint
+    joint_speed: 1.0
+    torque_enable: false
+    motor:
+        id: 4
+        init: 512
+        min: 0
+        max: 1023
 
 r_ankle_pitch_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: r_ankle_pitch_joint
-    max_velocity: 5.0
-    motors:
-        - id: 5
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: r_ankle_pitch_joint
+    joint_speed: 5.0
+    torque_enable: false
+    motor:
+        id: 5
+        init: 512
+        min: 0
+        max: 1023
 
 r_ankle_roll_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: r_ankle_roll_joint
-    max_velocity: 5.0
-    motors:
-        - id: 6
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: r_ankle_roll_joint
+    joint_speed: 5.0
+    motor:
+        id: 6
+        init: 512
+        min: 0
+        max: 1023
 
 # Left leg
 
 l_hip_yaw_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: l_hip_yaw_joint
-    max_velocity: 3.0
-    motors:
-        - id: 7
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: l_hip_yaw_joint
+    joint_speed: 1.0
+    motor:
+        id: 7
+        init: 305
+        min: 145
+        max: 549
 
 l_hip_roll_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: l_hip_roll_joint
-    max_velocity: 3.0
-    motors:
-        - id: 8
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: l_hip_roll_joint
+    joint_speed: 1.0
+    motor:
+        id: 8
+        init: 511
+        min: 582
+        max: 362
 
 l_hip_pitch_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: l_hip_pitch_joint
-    max_velocity: 3.0
-    motors:
-        - id: 9
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: l_hip_pitch_joint
+    joint_speed: 1.0
+    motor:
+        id: 9
+        init: 891
+        min: 588
+        max: 891
 
 l_knee_pitch_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: l_knee_pitch_joint
-    max_velocity: 3.0
-    motors:
-        - id: 10
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: l_knee_pitch_joint
+    joint_speed: 1.0
+    motor:
+        id: 10
+        init: 512
+        min: 0
+        max: 1023
 
 l_ankle_pitch_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: l_ankle_pitch_joint
-    max_velocity: 5.0
-    motors:
-        - id: 11
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: l_ankle_pitch_joint
+    joint_speed: 5.0
+    motor:
+        id: 11
+        init: 512
+        min: 0
+        max: 1023
 
 l_ankle_roll_controller:
-    type: dynamixel_hardware_interface/JointPositionController
-    joint: l_ankle_roll_joint
-    max_velocity: 5.0
-    motors:
-        - id: 12
-          init: 512
-          min: 0
-          max: 1023
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: l_ankle_roll_joint
+    joint_speed: 5.0
+    motor:
+        id: 12
+        init: 512
+        min: 0
+        max: 1023

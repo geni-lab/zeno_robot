@@ -1,5 +1,9 @@
 left_leg_controller:
-    type: dynamixel_hardware_interface/JointTrajectoryActionController
+    controller:
+        package: dynamixel_controllers
+        module: joint_trajectory_action_controller
+        type: JointTrajectoryActionController
+
     dependencies:
         - l_hip_yaw_controller
         - l_hip_roll_controller
