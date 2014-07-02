@@ -8,11 +8,14 @@
     <!-- Properties -->
     <xacro:property name="pi" value="3.14159265359" />
     <xacro:property name="shoulder_pitch_angle" value="-0.1418" />
+    <xacro:property name="shoulder_roll_angle" value="0.1418" />
+
     <xacro:property name="hip_roll_link_length" value="0.148" />
     <xacro:property name="hip_pitch_link_length" value="0.448" />
-    <xacro:property name="knee_pitch_link_length" value="0.7267" />
+    <xacro:property name="knee_pitch_link_length" value="0.6" />
     <xacro:property name="ankle_pitch_link_length" value="0.6846" />
-    <xacro:property name="ankle_roll_link_length" value="0.4622" />
+    <xacro:property name="ankle_roll_link_length" value="0.0" />
+    <xacro:property name="sole_length" value="0.4622" />
 
     <!-- Head and Torso-->
     <xacro:zeno_head/>

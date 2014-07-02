@@ -9,11 +9,13 @@
         <link name="${prefix}_knee_pitch_link"/>
         <link name="${prefix}_ankle_pitch_link"/>
         <link name="${prefix}_ankle_roll_link"/>
+        <link name="${prefix}_sole"/>
+        <link name="${prefix}_toe"/>
 
         <joint name="${prefix}_hip_yaw_joint" type="revolute">
             <parent link="pelvis_link"/>
             <child link="${prefix}_hip_yaw_link"/>
-            <origin xyz="0.0 ${reflect * 0.3253}  -0.41" rpy="0 ${pi/2} 0" />
+            <origin xyz="0.15 ${reflect * 0.3253}  -0.41" rpy="0 ${pi/2} 0" />
             <axis xyz="1 0 0"/>
             <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
         </joint>
@@ -29,7 +31,7 @@
         <joint name="${prefix}_hip_pitch_joint" type="revolute">
             <parent link="${prefix}_hip_roll_link"/>
             <child link="${prefix}_hip_pitch_link"/>
-            <origin xyz="${hip_pitch_link_length}  0.0 0.0" rpy="0 0 0" />
+            <origin xyz="${hip_pitch_link_length}  0.0 0.05" rpy="0 0 0" />
             <axis xyz="0 1 0"/>
             <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
         </joint>
@@ -37,7 +39,8 @@
         <joint name="${prefix}_knee_pitch_joint" type="revolute">
             <parent link="${prefix}_hip_pitch_link"/>
             <child link="${prefix}_knee_pitch_link"/>
-            <origin xyz="${knee_pitch_link_length} 0.0 0.0" rpy="0 0 0" />        <axis xyz="0 1 0"/>
+            <origin xyz="${knee_pitch_link_length} 0.0 -0.1" rpy="0 0 0" />
+            <axis xyz="0 1 0"/>
             <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
         </joint>
 
@@ -55,6 +58,18 @@
              <origin xyz="${ankle_roll_link_length} 0.0 0.0" rpy="0 0 0" />
             <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
             <axis xyz="0 0 1"/>
+        </joint>
+
+        <joint name="${prefix}_sole_joint" type="fixed">
+            <parent link="${prefix}_ankle_roll_link"/>
+            <child link="${prefix}_sole"/>
+             <origin xyz="${sole_length} 0.0 0.0" rpy="0 -${pi/2} 0" />
+        </joint>
+
+        <joint name="${prefix}_toe_joint" type="fixed">
+            <parent link="${prefix}_sole"/>
+            <child link="${prefix}_toe"/>
+             <origin xyz="0.65 ${reflect * 0.1} 0.0" rpy="0 0 0" />
         </joint>
 
     </xacro:macro>
