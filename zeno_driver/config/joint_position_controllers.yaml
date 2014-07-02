@@ -49,9 +49,9 @@ r_knee_pitch_controller:
     torque_enable: false
     motor:
         id: 4
-        init: 512
-        min: 0
-        max: 1023
+        init: 837
+        min: 311
+        max: 837
 
 r_ankle_pitch_controller:
     controller:
@@ -63,9 +63,9 @@ r_ankle_pitch_controller:
     torque_enable: false
     motor:
         id: 5
-        init: 512
-        min: 0
-        max: 1023
+        init: 460
+        min: 460
+        max: 852
 
 r_ankle_roll_controller:
     controller:
@@ -76,9 +76,9 @@ r_ankle_roll_controller:
     joint_speed: 5.0
     motor:
         id: 6
-        init: 512
-        min: 0
-        max: 1023
+        init: 390
+        min: 390
+        max: 542
 
 # Left leg
 
@@ -130,9 +130,9 @@ l_knee_pitch_controller:
     joint_speed: 1.0
     motor:
         id: 10
-        init: 512
-        min: 0
-        max: 1023
+        init: 832
+        min: 832
+        max: 275
 
 l_ankle_pitch_controller:
     controller:
@@ -143,9 +143,9 @@ l_ankle_pitch_controller:
     joint_speed: 5.0
     motor:
         id: 11
-        init: 512
-        min: 0
-        max: 1023
+        init: 220
+        min: 220
+        max: 618
 
 l_ankle_roll_controller:
     controller:
@@ -156,6 +156,6 @@ l_ankle_roll_controller:
     joint_speed: 5.0
     motor:
         id: 12
-        init: 512
-        min: 0
-        max: 1023
+        init: 291
+        min: 291
+        max: 430

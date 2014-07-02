@@ -1,5 +1,5 @@
 <launch>
-    <param name="robot_description" textfile="$(find zeno_description)/urdf/zeno_robot.urdf"/>
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find zeno_description)/urdf/zeno_robot.urdf.xacro" />
 
     <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" >
         <param name="use_gui" value="true"/>

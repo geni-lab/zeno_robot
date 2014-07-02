@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="zeno_head" >
+        <!-- Head, neck & eyes -->
+        <link name="neck_yaw_link"/>
+        <link name="neck_pitch_link"/>
+        <!--<link name="neck_roll_link"/>-->
+        <!--<link name="gaze_link_link"/>-->
+        <!--<link name="l_eye_gaze_link"/>-->
+        <!--<link name="r_eye_gaze_link"/>-->
+
+        <!-- Head joints -->
+        <joint name="neck_yaw_joint" type="revolute">
+            <parent link="chest_link"/>
+            <child link="neck_yaw_link"/>
+            <origin xyz="0.0 0.0 1.05" rpy="0 0 0" />
+            <axis xyz="0 0 1"/>
+            <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
+        </joint>
+
+        <joint name="neck_pitch_joint" type="revolute">
+            <parent link="neck_yaw_link"/>
+            <child link="neck_pitch_link"/>
+            <origin xyz="0.0 0.0 0.3" rpy="0 0 0" />
+            <axis xyz="0 1 0"/>
+            <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
+        </joint>
+
+    </xacro:macro>
+</robot>

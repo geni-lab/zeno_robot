@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="zeno_leg" params="prefix reflect">
+
+        <link name="${prefix}_hip_yaw_link"/>
+        <link name="${prefix}_hip_roll_link"/>
+        <link name="${prefix}_hip_pitch_link"/>
+        <link name="${prefix}_knee_pitch_link"/>
+        <link name="${prefix}_ankle_pitch_link"/>
+        <link name="${prefix}_ankle_roll_link"/>
+
+        <joint name="${prefix}_hip_yaw_joint" type="revolute">
+            <parent link="pelvis_link"/>
+            <child link="${prefix}_hip_yaw_link"/>
+            <origin xyz="0.0 ${reflect * 0.3253}  -0.41" rpy="0 ${pi/2} 0" />
+            <axis xyz="1 0 0"/>
+            <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
+        </joint>
+
+        <joint name="${prefix}_hip_roll_joint" type="revolute">
+            <parent link="${prefix}_hip_yaw_link"/>
+            <child link="${prefix}_hip_roll_link"/>
+            <origin xyz="${hip_roll_link_length} 0.0 0.0" rpy="0 0 0" />
+            <axis xyz="0 0 1"/>
+            <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
+        </joint>
+
+        <joint name="${prefix}_hip_pitch_joint" type="revolute">
+            <parent link="${prefix}_hip_roll_link"/>
+            <child link="${prefix}_hip_pitch_link"/>
+            <origin xyz="${hip_pitch_link_length}  0.0 0.0" rpy="0 0 0" />
+            <axis xyz="0 1 0"/>
+            <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
+        </joint>
+
+        <joint name="${prefix}_knee_pitch_joint" type="revolute">
+            <parent link="${prefix}_hip_pitch_link"/>
+            <child link="${prefix}_knee_pitch_link"/>
+            <origin xyz="${knee_pitch_link_length} 0.0 0.0" rpy="0 0 0" />        <axis xyz="0 1 0"/>
+            <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
+        </joint>
+
+        <joint name="${prefix}_ankle_pitch_joint" type="revolute">
+            <parent link="${prefix}_knee_pitch_link"/>
+            <child link="${prefix}_ankle_pitch_link"/>
+            <origin xyz="${ankle_pitch_link_length} 0.0 0.0" rpy="0 0 0" />
+            <axis xyz="0 1 0"/>
+            <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
+        </joint>
+
+        <joint name="${prefix}_ankle_roll_joint" type="revolute">
+            <parent link="${prefix}_ankle_pitch_link"/>
+            <child link="${prefix}_ankle_roll_link"/>
+             <origin xyz="${ankle_roll_link_length} 0.0 0.0" rpy="0 0 0" />
+            <limit velocity="1.0" effort="10" lower="-3.1415" upper="3.1415" />
+            <axis xyz="0 0 1"/>
+        </joint>
+
+    </xacro:macro>
+</robot>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="zeno">
+    <xacro:include filename="$(find zeno_description)/urdf/zeno_head.urdf.xacro" />
+    <xacro:include filename="$(find zeno_description)/urdf/zeno_torso.urdf.xacro" />
+    <xacro:include filename="$(find zeno_description)/urdf/zeno_arm.urdf.xacro" />
+    <xacro:include filename="$(find zeno_description)/urdf/zeno_leg.urdf.xacro" />
+
+    <!-- Properties -->
+    <xacro:property name="pi" value="3.14159265359" />
+    <xacro:property name="shoulder_pitch_angle" value="-0.1418" />
+    <xacro:property name="hip_roll_link_length" value="0.148" />
+    <xacro:property name="hip_pitch_link_length" value="0.448" />
+    <xacro:property name="knee_pitch_link_length" value="0.7267" />
+    <xacro:property name="ankle_pitch_link_length" value="0.6846" />
+    <xacro:property name="ankle_roll_link_length" value="0.4622" />
+
+    <!-- Head and Torso-->
+    <xacro:zeno_head/>
+    <xacro:zeno_torso/>
+
+    <!-- Arms -->
+    <xacro:zeno_arm prefix="l" reflect="1" />
+    <xacro:zeno_arm prefix="r" reflect="-1" />
+
+    <!-- Legs -->
+    <xacro:zeno_leg prefix="l" reflect="1" />
+    <xacro:zeno_leg prefix="r" reflect="-1" />
+</robot>
