@@ -9,9 +9,9 @@ r_hip_yaw_controller: #Done
     joint_speed: 1.17
     motor:
         id: 1
-        init: 143
-        min: 330
-        max: 0
+        init: 512
+        min: 0
+        max: 1023
 
 r_hip_roll_controller: #Done
     controller:
@@ -22,9 +22,9 @@ r_hip_roll_controller: #Done
     joint_speed: 1.0
     motor:
         id: 2
-        init: 496
-        min: 646
-        max: 424
+        init: 512
+        min: 0
+        max: 1023
 
 r_hip_pitch_controller: #Done
     controller:
@@ -35,9 +35,9 @@ r_hip_pitch_controller: #Done
     joint_speed: 1.0
     motor:
         id: 3
-        init: 458
-        min: 694 
-        max: 396
+        init: 512
+        min: 0
+        max: 1023
 
 r_knee_pitch_controller: #Done
     controller:
@@ -49,9 +49,9 @@ r_knee_pitch_controller: #Done
     torque_enable: false
     motor:
         id: 4
-        init: 524
-        min: 324
-        max: 762
+        init: 512
+        min: 0
+        max: 1023
 
 r_ankle_pitch_controller: #Done
     controller:
@@ -63,9 +63,9 @@ r_ankle_pitch_controller: #Done
     torque_enable: false
     motor:
         id: 5
-        init: 547
-        min: 530
-        max: 859
+        init: 512
+        min: 0
+        max: 1023
 
 r_ankle_roll_controller: #Done
     controller:
@@ -76,9 +76,9 @@ r_ankle_roll_controller: #Done
     joint_speed: 5.0
     motor:
         id: 6
-        init: 320
-        min: 230
-        max: 375
+        init: 512
+        min: 0
+        max: 1023
 
 
 # Left leg
@@ -92,9 +92,13 @@ l_hip_yaw_controller: #Motor not working?
     joint_speed: 1.0
     motor:
         id: 7
-        init: 305
-        min: 145
-        max: 549
+        init: 2048
+        min: 0
+        max: 4095
+
+#        init: 305
+#        min: 145
+#        max: 549
 
 l_hip_roll_controller: #Done
     controller:
@@ -105,9 +109,9 @@ l_hip_roll_controller: #Done
     joint_speed: 1.0
     motor:
         id: 8
-        init: 503
-        min: 577
-        max: 360
+        init: 512
+        min: 0
+        max: 1023
 
 l_hip_pitch_controller: #Done
     controller:
@@ -118,9 +122,9 @@ l_hip_pitch_controller: #Done
     joint_speed: 1.0
     motor:
         id: 9
-        init: 504
-        min: 280
-        max: 587
+        init: 512
+        min: 0
+        max: 1023
 
 l_knee_pitch_controller: #Done
     controller:
@@ -131,9 +135,9 @@ l_knee_pitch_controller: #Done
     joint_speed: 1.0
     motor:
         id: 10
-        init: 485
-        min: 714
-        max: 276
+        init: 512
+        min: 0
+        max: 1023
 
 l_ankle_pitch_controller: #Done
     controller:
@@ -144,9 +148,9 @@ l_ankle_pitch_controller: #Done
     joint_speed: 5.0
     motor:
         id: 11
-        init: 532
-        min: 280
-        max: 596
+        init: 512
+        min: 0
+        max: 1023
 
 l_ankle_roll_controller: #Done
     controller:
@@ -157,6 +161,6 @@ l_ankle_roll_controller: #Done
     joint_speed: 5.0
     motor:
         id: 12
-        init: 359
-        min: 290
-        max: 451
+        init: 512
+        min: 0
+        max: 1023
