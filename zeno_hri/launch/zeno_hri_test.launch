@@ -1,0 +1,34 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find zeno_description)/urdf/zeno_robot.urdf.xacro" />
+    <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" />
+
+   <!-- Blender controllers -->
+    <param name="armature_name" value="Armature" />
+    <param name="blender_target_controllers" value="$(find zeno_driver)/launch/zeno_target_controllers.yaml" /> -->
+
+    <!-- <node pkg="ros_blender_bridge" type="run_target_controllers.py" name="blender_target_controllers" output="screen" /> -->
+
+    <node pkg="ros_blender_bridge" type="launch_blender" name="launch_blender" output="screen">
+        <param name="blend_file" value="$(find zeno_description)/blender/zeno.blend" />
+        <param name="use_game_engine" value="false" />
+        <param name="python_script" value="$(find ros_blender_bridge)/scripts/run_blender_node.py" />
+    </node>
+
+    <!-- HRI action servers -->
+    <node pkg="hri_common" type="mini_head_lip_sync_node.py" name="lip_sync" output="screen"/>
+    <node pkg="hri_common" type="mini_head_expression_server_node.py" name="expression_server" output="screen"/>
+    <node pkg="hri_common" type="itf_tts_server_node.py" name="tts_server" output="screen"/>
+
+
+    <!-- Fake people -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_map" args="0 0 1 0 0 0 /map /base_link 20" />
+
+    <node pkg="tf" type="static_transform_publisher" name="person1_head" args="2 2 1.9 0 0 0 /map /person1_head 20" />
+    <node pkg="tf" type="static_transform_publisher" name="person1_torso" args="2 2 1 0 0 0 /map /person1_torso 20" />
+
+    <node pkg="tf" type="static_transform_publisher" name="person2_head" args="2 0.3 1.76 0 0 0 /map /person2_head 20" />
+    <node pkg="tf" type="static_transform_publisher" name="person2_torso" args="2 0.3 1.16 0 0 0 /map /person2_torso 20" />
+
+    <node pkg="tf" type="static_transform_publisher" name="person3_head" args="1 -1 1.5 0 0 0 /map /person3_head 20" />
+    <node pkg="tf" type="static_transform_publisher" name="person3_torso" args="1 -1 0.9 0 0 0 /map /person3_torso 20" />
+</launch>

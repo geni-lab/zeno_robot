@@ -1,0 +1,112 @@
+neck_roll_joint:
+  pololu_id: 24
+  motor_id: 0
+  min: 992
+  max: 1300
+  init: 1070
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+neck_pitch_joint:
+  pololu_id: 24
+  motor_id: 1
+  min: 1588
+  max: 2000
+  init: 1862
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+brow_joint:
+  pololu_id: 24
+  motor_id: 3
+  min: 992
+  max: 1700
+  init: 1334
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+eyelid_joint:
+  pololu_id: 24
+  motor_id: 4
+  min: 1089
+  max: 1525
+  init: 1398
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+eye_up_joint:
+  pololu_id: 24
+  motor_id: 5
+  min: 992
+  max: 2000
+  init: 1613
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+eye_joint:
+  pololu_id: 24
+  motor_id: 6
+  min: 1271
+  max: 1648
+  init: 1412
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+smile_joint:
+  pololu_id: 24
+  motor_id: 7
+  min: 992
+  max: 2000
+  init: 1471
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+jaw_joint:
+  pololu_id: 24
+  motor_id: 11
+  min: 1285
+  max: 1590
+  init: 1589
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
