@@ -110,3 +110,214 @@ jaw_joint:
     max_angle: 50
 
 
+l_shoulder_pitch_joint:
+  pololu_id: 12
+  motor_id: 0
+  min: 992
+  max: 1745.5
+  init: 1745.5
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+l_shoulder_pitch_joint:
+  pololu_id: 12
+  motor_id: 0
+  min: 992
+  max: 1745
+  init: 1745
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+l_elbow_roll_joint:
+  pololu_id: 12
+  motor_id: 1
+  min: 1000
+  max: 2000
+  init: 1329
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+l_elbow_pitch_joint:
+  pololu_id: 12
+  motor_id: 2
+  min: 1398
+  max: 1931
+  init: 1525
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+l_wrist_roll_joint:
+  pololu_id: 12
+  motor_id: 3
+  min: 992
+  max: 2000
+  init: 1931
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+left_hand_grasp:
+  pololu_id: 12
+  motor_id: 4
+  min: 992
+  max: 1706
+  init: 1200
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+l_shoulder_roll_joint:
+  pololu_id: 12
+  motor_id: 6
+  min: 992
+  max: 1990
+  init: 2000
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+neck_yaw_joint:
+  pololu_id: 12
+  motor_id: 7
+  min: 992
+  max: 2000
+  init: 1349
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+torso_joint:
+  pololu_id: 12
+  motor_id: 8
+  min: 1016
+  max: 1907
+  init: 1554
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+r_shoulder_pitch_joint:
+  pololu_id: 12
+  motor_id: 12
+  min: 992
+  max: 2000
+  init: 1090
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+r_shoulder_roll_joint:
+  pololu_id: 12
+  motor_id: 13
+  min: 992
+  max: 1600
+  init: 992
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+r_elbow_roll_joint:
+  pololu_id: 12
+  motor_id: 14
+  min: 992
+  max: 2000
+  init: 1725
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+r_elbow_pitch_joint:
+  pololu_id: 12
+  motor_id: 15
+  min: 1136
+  max: 1792
+  init: 1760
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+r_wrist_roll_joint:
+  pololu_id: 12
+  motor_id: 16
+  min: 996
+  max: 2000
+  init: 1261
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+right_hand_grasp:
+  pololu_id: 12
+  motor_id: 17
+  min: 992
+  max: 1701
+  init: 1486
+  reverse: false
+  calibration:
+    min_pulse: 1000
+    min_angle: -45
+    max_pulse: 2000
+    max_angle: 50
+
+
+
+
