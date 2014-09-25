@@ -54,7 +54,7 @@ eyelid_joint:
     max_angle: 50
 
 
-eye_vertical_joint:
+eye_up_joint:
   pololu_id: 24
   motor_id: 5
   min: 992
@@ -68,7 +68,7 @@ eye_vertical_joint:
     max_angle: 50
 
 
-eye_horizontal_joint:
+eye_joint:
   pololu_id: 24
   motor_id: 6
   min: 1271
