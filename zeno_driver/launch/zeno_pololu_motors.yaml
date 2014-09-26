@@ -1,3 +1,7 @@
+#Jamie's cpp code assumes that the min and max angle are in radians
+#(Which would suggest that we hav eot edit the min and max angels out of degree mode)
+
+
 neck_roll_joint:
   pololu_id: 24
   motor_id: 0
@@ -115,26 +119,14 @@ l_shoulder_pitch_joint:
   motor_id: 0
   min: 992
   max: 1745.5
-  init: 1700.0
+  init: 1744
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -37.5
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 37.5
 
-l_shoulder_pitch_joint:
-  pololu_id: 12
-  motor_id: 0
-  min: 992
-  max: 1745
-  init: 1700.0
-  reverse: false
-  calibration:
-    min_pulse: 1000
-    min_angle: -45
-    max_pulse: 2000
-    max_angle: 50
 
 
 l_elbow_roll_joint:
@@ -148,8 +140,7 @@ l_elbow_roll_joint:
     min_pulse: 1000
     min_angle: -45
     max_pulse: 2000
-    max_angle: 50
-
+    max_angle: 45
 
 l_elbow_pitch_joint:
   pololu_id: 12
@@ -160,9 +151,9 @@ l_elbow_pitch_joint:
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -30
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 30
 
 
 l_wrist_roll_joint:
@@ -176,7 +167,7 @@ l_wrist_roll_joint:
     min_pulse: 1000
     min_angle: -45
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 45
 
 
 left_hand_grasp:
@@ -188,21 +179,21 @@ left_hand_grasp:
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -15
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 15
 
 
 l_shoulder_roll_joint:
   pololu_id: 12
   motor_id: 6
   min: 992
-  max: 1990
-  init: 1900
+  max: 2000
+  init: 1999
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -50
     max_pulse: 2000
     max_angle: 50
 
@@ -230,12 +221,12 @@ torso_joint:
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -50
     max_pulse: 2000
     max_angle: 50
 
 
-r_shoulder_pitch_joint:
+r_shoulder_roll_joint:
   pololu_id: 12
   motor_id: 12
   min: 992
@@ -244,12 +235,12 @@ r_shoulder_pitch_joint:
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -50
     max_pulse: 2000
     max_angle: 50
 
 
-r_shoulder_roll_joint:
+r_shoulder_pitch_joint:
   pololu_id: 12
   motor_id: 13
   min: 992
@@ -258,9 +249,9 @@ r_shoulder_roll_joint:
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -37.5
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 37.5
 
 
 r_elbow_roll_joint:
@@ -272,9 +263,9 @@ r_elbow_roll_joint:
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -37.5
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 37.5
 
 
 r_elbow_pitch_joint:
@@ -288,7 +279,7 @@ r_elbow_pitch_joint:
     min_pulse: 1000
     min_angle: -45
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 45
 
 
 r_wrist_roll_joint:
@@ -302,7 +293,7 @@ r_wrist_roll_joint:
     min_pulse: 1000
     min_angle: -45
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 45
 
 
 right_hand_grasp:
@@ -314,9 +305,9 @@ right_hand_grasp:
   reverse: false
   calibration:
     min_pulse: 1000
-    min_angle: -45
+    min_angle: -15
     max_pulse: 2000
-    max_angle: 50
+    max_angle: 15
 
 
 
