@@ -231,7 +231,7 @@ r_shoulder_roll_joint:
   motor_id: 12
   min: 992
   max: 2000
-  init: 1090
+  init: 1089.75
   reverse: false
   calibration:
     min_pulse: 1000
@@ -245,7 +245,7 @@ r_shoulder_pitch_joint:
   motor_id: 13
   min: 992
   max: 1600
-  init: 1500
+  init: 993
   reverse: false
   calibration:
     min_pulse: 1000
